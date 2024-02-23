@@ -7,6 +7,7 @@ public class Conecta4 {
 	
 	private char panel[][];
 	private int turno;
+	private int dondeFichas[];
 	
 	public Conecta4() {
 		
@@ -19,12 +20,31 @@ public class Conecta4 {
 				panel[i][j] = ' ';
 			}
 		}
+		
+		dondeFichas = new int[COLUMNAS];
+		for(int j=0;j<COLUMNAS;j++) {
+			
+			dondeFichas[j] = 5;
+		}
+		
 	}
 	
 	
 	
 	public boolean colocarFicha(int columna) {
-		// TODO Auto-generated method stub
+
+		int fila = dondeFichas[columna];
+		if(fila>-1 && columna>=0 && columna<COLUMNAS) {
+
+			// disminuyo donde va la siguiente ficha en esa columna
+			dondeFichas[columna]--;
+			// establezco la ficha que toca
+			char ficha = (turno==1)?'X':'O';
+			// cambio el turno
+			turno = (turno==1)?2:1;
+			// coloco la ficha
+			panel[fila][columna] = ficha;
+		}
 		return false;
 	}
 
@@ -50,6 +70,20 @@ public class Conecta4 {
 		}
 		
 		System.out.println("\n");
+	}
+
+
+	
+	
+	
+
+	public String getTurno() {
+
+		if(turno==1) {
+			
+			return "X";
+		}
+		else return "O";
 	}
 
 }

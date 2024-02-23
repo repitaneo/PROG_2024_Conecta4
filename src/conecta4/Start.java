@@ -11,21 +11,18 @@ public class Start {
 		Conecta4 conecta4 = new Conecta4();
 		
 		boolean hayGanador = false;
-		int turno = 1;
 		
 		while(!hayGanador) {
 			
-			System.out.println("le toca a ["+turno+"]");
+			System.out.println("le toca a "+conecta4.getTurno());
 			System.out.println("elige columna:");
-			int columna = teclado.nextInt();
-			hayGanador = conecta4.colocarFicha(columna);
-			conecta4.imprimirPanel();
 			
-			// turno = (turno==1)?2:1;
-			if(turno==1) {
-				turno=2;
+			int columna = teclado.nextInt();
+			if(columna>=0 && columna<Conecta4.COLUMNAS) {
+			
+				hayGanador = conecta4.colocarFicha(columna);
+				conecta4.imprimirPanel();
 			}
-			else turno = 1;
 		}
 		
 	}
