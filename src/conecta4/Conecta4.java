@@ -44,6 +44,8 @@ public class Conecta4 {
 			turno = (turno==1)?2:1;
 			// coloco la ficha
 			panel[fila][columna] = ficha;
+			
+			return hayGanadorVertical(fila,columna);
 		}
 		return false;
 	}
@@ -52,6 +54,30 @@ public class Conecta4 {
 	
 	
 	
+	
+	
+	private boolean hayGanadorVertical(int fila, int columna) {
+		
+		int contador = 0;
+		
+		if(fila<3) {
+			char ficha = panel[fila][columna];
+			
+			for(int i=0;i<3;i++) {
+				if(panel[fila+1+i][columna]==ficha) {
+					contador++;
+				}
+			}
+		}
+		return contador==3;
+	}
+
+
+	
+	
+	
+	
+
 	public void imprimirPanel() {
 		
 		System.out.print("\n");

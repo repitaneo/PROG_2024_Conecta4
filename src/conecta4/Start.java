@@ -24,6 +24,7 @@ public class Start {
 				conecta4.imprimirPanel();
 			}
 		}
+		System.out.println("ya ganó alguien");
 		
 	}
 
